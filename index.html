@@ -40,10 +40,10 @@
         <img id="coming-soon" src="./Coming soon!.png" style="display: none;" height=100%>
         <div id="coming-soon-buttons" class="grid-container" style="
                 display: none;
-                position:absolute; 
-                bottom: 50px; 
+                position:absolute;
+                bottom: 50px;
                 left: 30px;
-                grid-template-rows: 1fr; 
+                grid-template-rows: 1fr;
                 ">
             <input type="image" width="120px" src="Frame 111.png"
                 onclick="window.Telegram.WebApp.openTelegramLink('https://t.me/Hare_ton')"></input>
@@ -119,7 +119,7 @@
         // the canvas DOM size and WebGL render target sizes yourself.
         // config.matchWebGLToCanvasSize = false;
 
-        if (/iPhone|Android/i.test(navigator.userAgent)) {
+/*        if (/iPhone|Android/i.test(navigator.userAgent)) {*/
             // Mobile device style: fill the whole browser client area with the game canvas:
 
             var meta = document.createElement('meta');
@@ -138,7 +138,7 @@
 
             comingSoon.style.display = "none";
             comingSoonButtons.style.display = "none";
-        } else {
+/*        } else {
             // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
             comingSoon.style.height = window.Telegram.WebApp["height"] ?? "650px";
@@ -149,7 +149,7 @@
             loader.style.display = "none";
             loadingBar.style.display = "none";
             canvas.style.display = "none";
-        }
+        }*/
 
         canvas.style.display = "none";
 
@@ -160,9 +160,9 @@
         window.Telegram.WebApp.expand();
 
         script.onload = () => {
-            if (!(/iPhone|Android/i.test(navigator.userAgent))) {
+        /*    if (!(/iPhone|Android/i.test(navigator.userAgent))) {
                 return;
-            }
+            }*/
 
             createUnityInstance(canvas, config, (progress) => {
                 progressBarFull.style.width = 100 * progress + "%";
