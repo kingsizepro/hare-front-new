@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
+    
 <!-- TODO: Refactor the code -->
 
 <head>
@@ -8,6 +9,7 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9Q9Z6GXLBN"></script>
+
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
@@ -15,20 +17,50 @@
 
         gtag('config', 'G-9Q9Z6GXLBN');
     </script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-617LRR0DGP"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
 
-        gtag('config', 'G-617LRR0DGP');
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })
+            (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+        ym(97869397, "init", {
+            clickmap: true,
+            trackLinks: true,
+            accurateTrackBounce: true,
+            webvisor: true
+        });
     </script>
+    
+
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/97869397" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <title>Unity WebGL Player | Hare</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
+
+    <!-- Top.Mail.Ru counter -->
+<script type="text/javascript">
+var _tmr = window._tmr || (window._tmr = []);
+_tmr.push({id: "3538711", type: "pageView", start: (new Date()).getTime()});
+(function (d, w, id) {
+  if (d.getElementById(id)) return;
+  var ts = d.createElement("script"); ts.type = "text/javascript"; ts.async = true; ts.id = id;
+  ts.src = "https://top-fwz1.mail.ru/js/code.js";
+  var f = function () {var s = d.getElementsByTagName("script")[0]; s.parentNode.insertBefore(ts, s);};
+  if (w.opera == "[object Opera]") { d.addEventListener("DOMContentLoaded", f, false); } else { f(); }
+})(document, window, "tmr-code");
+</script>
+<noscript><div><img src="https://top-fwz1.mail.ru/counter?id=3538711;js=na" style="position:absolute;left:-9999px;" alt="Top.Mail.Ru" /></div></noscript>
+<!-- /Top.Mail.Ru counter -->
 </head>
 
 <body>
@@ -40,10 +72,10 @@
         <img id="coming-soon" src="./Coming soon!.png" style="display: none;" height=100%>
         <div id="coming-soon-buttons" class="grid-container" style="
                 display: none;
-                position:absolute;
-                bottom: 50px;
+                position:absolute; 
+                bottom: 50px; 
                 left: 30px;
-                grid-template-rows: 1fr;
+                grid-template-rows: 1fr; 
                 ">
             <input type="image" width="120px" src="Frame 111.png"
                 onclick="window.Telegram.WebApp.openTelegramLink('https://t.me/Hare_ton')"></input>
@@ -102,14 +134,13 @@
         var buildUrl = "Build";
         var loaderUrl = buildUrl + "/Hare.loader.js";
         var config = {
-            dataUrl: buildUrl + "/Hare.data",
-            frameworkUrl: buildUrl + "/Hare.framework.js",
-            codeUrl: buildUrl + "/Hare.wasm",
+            dataUrl: buildUrl + "/Hare.data.unityweb",
+            frameworkUrl: buildUrl + "/Hare.framework.js.unityweb",
+            codeUrl: buildUrl + "/Hare.wasm.unityweb",
             streamingAssetsUrl: "StreamingAssets",
             companyName: "DefaultCompany",
             productName: "Hare",
             productVersion: "1.0",
-            showBanner: unityShowBanner,
         };
 
         // By default, Unity keeps WebGL canvas render target size matched with
@@ -119,7 +150,7 @@
         // the canvas DOM size and WebGL render target sizes yourself.
         // config.matchWebGLToCanvasSize = false;
 
-/*        if (/iPhone|Android/i.test(navigator.userAgent)) {*/
+        if (/iPhone|Android/i.test(navigator.userAgent)) {
             // Mobile device style: fill the whole browser client area with the game canvas:
 
             var meta = document.createElement('meta');
@@ -138,7 +169,7 @@
 
             comingSoon.style.display = "none";
             comingSoonButtons.style.display = "none";
-/*        } else {
+        } else {
             // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
 
             comingSoon.style.height = window.Telegram.WebApp["height"] ?? "650px";
@@ -149,7 +180,7 @@
             loader.style.display = "none";
             loadingBar.style.display = "none";
             canvas.style.display = "none";
-        }*/
+        }
 
         canvas.style.display = "none";
 
@@ -160,9 +191,9 @@
         window.Telegram.WebApp.expand();
 
         script.onload = () => {
-        /*    if (!(/iPhone|Android/i.test(navigator.userAgent))) {
+            if (!(/iPhone|Android/i.test(navigator.userAgent))) {
                 return;
-            }*/
+            }
 
             createUnityInstance(canvas, config, (progress) => {
                 progressBarFull.style.width = 100 * progress + "%";
